@@ -13,6 +13,11 @@ accuracy alone.
 and rewards stability, so it favors resilient, resource-efficient models that can run
 on modest hardware.
 
+## How the outputs connect to SDG 9
+- The size penalty in the fitness steers the search toward smaller models, which need less compute.
+- `benchmark.py` measures inference latency and memory, so the resource cost of the selected model is reported, not assumed.
+- Drift accuracy and the CV standard deviation reward models that stay reliable when data changes.
+
 ## Approach
 - **Representation:** an individual is `[n_estimators, max_depth, min_samples_split]`,
   each an integer within fixed ranges (`GENE_RANGES` in `ga_optimizer.py`).
